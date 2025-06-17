@@ -15,3 +15,27 @@ int main() {
     cout << "Skaičių, dalinamų iš 7 nuo 1 iki " << N << ": " << kiekis << endl;
     return 0;
 }
+
+ir 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cout << "Įveskite tris skaičius: ";
+    cin >> a >> b >> c;
+
+    int didziausias = a;
+    if (b > didziausias) didziausias = b;
+    if (c > didziausias) didziausias = c;
+
+    int maziausias = a;
+    if (b < maziausias) maziausias = b;
+    if (c < maziausias) maziausias = c;
+
+    cout << "Didžiausias: " << didziausias << endl;
+    cout << "Mažiausias: " << maziausias << endl;
+
+    return 0;
+}

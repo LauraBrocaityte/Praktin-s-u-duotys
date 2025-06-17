@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    const int dydis = 10;
+    int masyvas[dydis];
+    int suma = 0;
+
+    srand(time(0));  // Užtikrina skirtingus rezultatus kiekvieną kartą
+
+    cout << "Sugeneruotas masyvas: ";
+    for (int i = 0; i < dydis; i++) {
+        masyvas[i] = rand() % 100; // Skaičiai nuo 0 iki 99
+        cout << masyvas[i] << " ";
+        suma += masyvas[i];
+    }
+
+    double vidurkis = (double)suma / dydis;
+    cout << "\nVidurkis: " << vidurkis << endl;
+
+    return 0;
+}
+
+
+ir 
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int dydis = 10;
+    int masyvas[dydis] = {5, 2, 7, 2, 5, 5, 3, 2, 5, 4};
+    int maxSk = masyvas[0], maxKiekis = 1;
+
+    for (int i = 0; i < dydis; i++) {
+        int kiekis = 1;
+        for (int j = i + 1; j < dydis; j++) {
+            if (masyvas[i] == masyvas[j]) {
+                kiekis++;
+            }
+        }
+        if (kiekis > maxKiekis) {
+            maxKiekis = kiekis;
+            maxSk = masyvas[i];
+        }
+    }
+
+    cout << "Dažniausiai pasikartojantis skaičius: " << maxSk << " (kartų: " << maxKiekis << ")" << endl;
+
+    return 0;
+}

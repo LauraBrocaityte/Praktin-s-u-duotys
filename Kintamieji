@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int pasirinkimas;
+    float ilgis;
+
+    cout << "Pasirinkite konvertavimo tipą:\n";
+    cout << "1 - Centimetrai į metrus\n";
+    cout << "2 - Metrai į centimetrus\n";
+    cin >> pasirinkimas;
+
+    if (pasirinkimas == 1) {
+        cout << "Įveskite ilgį centimetrais: ";
+        cin >> ilgis;
+        cout << "Ilgis metrais: " << ilgis / 100 << " m\n";
+    } else if (pasirinkimas == 2) {
+        cout << "Įveskite ilgį metrais: ";
+        cin >> ilgis;
+        cout << "Ilgis centimetrais: " << ilgis * 100 << " cm\n";
+    } else {
+        cout << "Neteisingas pasirinkimas.\n";
+    }
+
+    return 0;
+}
+
+
+
+ir 
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double a, b, rezultatas;
+    char veiksmas;
+
+    cout << "Įveskite pirmą skaičių: ";
+    cin >> a;
+
+    cout << "Įveskite veiksmą (+, -, *, /): ";
+    cin >> veiksmas;
+
+    cout << "Įveskite antrą skaičių: ";
+    cin >> b;
+
+    if (veiksmas == '+') {
+        rezultatas = a + b;
+    } else if (veiksmas == '-') {
+        rezultatas = a - b;
+    } else if (veiksmas == '*') {
+        rezultatas = a * b;
+    } else if (veiksmas == '/') {
+        if (b != 0)
+            rezultatas = a / b;
+        else {
+            cout << "Klaida: dalyba iš nulio!" << endl;
+            return 1;
+        }
+    } else {
+        cout << "Neatpažintas veiksmas." << endl;
+        return 1;
+    }
+
+    cout << "Rezultatas: " << rezultatas << endl;
+    return 0;
+}

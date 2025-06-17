@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <algorithm>  // dėl sort()
+using namespace std;
+
+struct Automobilis {
+    string marke;
+    string modelis;
+    int metai;
+    double kaina;
+};
+
+bool palygintiKaina(const Automobilis &a, const Automobilis &b) {
+    return a.kaina < b.kaina;
+}
+
+int main() {
+    const int kiekis = 5;
+    Automobilis automobiliai[kiekis];
+
+    for (int i = 0; i < kiekis; i++) {
+        cout << "Automobilis #" << i + 1 << endl;
+        cout << "Markė: ";
+        cin >> automobiliai[i].marke;
+        cout << "Modelis: ";
+        cin >> automobiliai[i].modelis;
+        cout << "Metai: ";
+        cin >> automobiliai[i].metai;
+        cout << "Kaina: ";
+        cin >> automobiliai[i].kaina;
+        cout << endl;
+    }
+
+    sort(automobiliai, automobiliai + kiekis, palygintiKaina);
+
+    cout << "\nAutomobiliai pagal kainą:\n";
+    for (int i = 0; i < kiekis; i++) {
+        cout << automobiliai[i.marke] << " " << automobiliai[i.modelis]
+             << ", " << automobiliai[i.metai] << " m., "
+             << automobiliai[i.kaina] << " EUR" << endl;
+    }
+
+    return 0;
+}
+
+
+ir 
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Darbuotojas {
+    string vardas;
+    string pavarde;
+    double atlyginimas;
+};
+
+int main() {
+    const int kiekis = 3;
+    Darbuotojas darbuotojai[kiekis];
+
+    for (int i = 0; i < kiekis; i++) {
+        cout << "Darbuotojas #" << i + 1 << endl;
+        cout << "Vardas: ";
+        cin >> darbuotojai[i].vardas;
+        cout << "Pavardė: ";
+        cin >> darbuotojai[i].pavarde;
+        cout << "Atlyginimas: ";
+        cin >> darbuotojai[i].atlyginimas;
+    }
+
+    // Rasti darbuotoją su didžiausiu atlyginimu
+    int maxIndeksas = 0;
+    for (int i = 1; i < kiekis; i++) {
+        if (darbuotojai[i].atlyginimas > darbuotojai[maxIndeksas].atlyginimas) {
+            maxIndeksas = i;
+        }
+    }
+
+    cout << "\nDidžiausią atlyginimą turi: "
+         << darbuotojai[maxIndeksas].vardas << " "
+         << darbuotojai[maxIndeksas].pavarde << " - "
+         << darbuotojai[maxIndeksas].atlyginimas << " EUR\n";
+
+    return 0;
+}

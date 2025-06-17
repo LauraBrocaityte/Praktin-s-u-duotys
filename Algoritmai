@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, kiekis = 0;
+    cout << "Įveskite N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        if (i % 7 == 0) {
+            kiekis++;
+        }
+    }
+
+    cout << "Skaičių, dalinamų iš 7 nuo 1 iki " << N << ": " << kiekis << endl;
+    return 0;
+}

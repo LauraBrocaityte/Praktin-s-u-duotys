@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+void sukeisti(int* a, int* b) {
+    int laikinas = *a;
+    *a = *b;
+    *b = laikinas;
+}
+
+int main() {
+    int x = 5, y = 10;
+    cout << "Prieš: x = " << x << ", y = " << y << endl;
+
+    sukeisti(&x, &y);
+
+    cout << "Po: x = " << x << ", y = " << y << endl;
+    return 0;
+}
+
+
+
+ir
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* masyvas = nullptr;
+    int dydis = 0, skaicius;
+
+    char testi;
+    do {
+        cout << "Įveskite skaičių: ";
+        cin >> skaicius;
+
+        // Sukuriame naują masyvą, didesnį per 1
+        int* naujas = new int[dydis + 1];
+
+        // Perkopijuojame senus duomenis
+        for (int i = 0; i < dydis; i++) {
+            naujas[i] = masyvas[i];
+        }
+
+        // Įdedame naują skaičių
+        naujas[dydis] = skaicius;
+
+        // Išvalome seną masyvą
+        delete[] masyvas;
+
+        // Priskiriame naują masyvą
+        masyvas = naujas;
+        dydis++;
+
+        cout << "Ar norite tęsti (t/n)? ";
+ir
+
+
+#include <iostream>
+#include <cstring>  // dėl strcpy, strlen
+using namespace std;
+
+int main() {
+    char tekstas[100];
+    cout << "Įveskite tekstą: ";
+    cin.getline(tekstas, 100);
+
+    // Sukuriame dinaminę atmintį
+    char* dinamTekstas = new char[strlen(tekstas) + 1];
+    strcpy(dinamTekstas, tekstas);
+
+    cout << "Įvestas tekstas: " << dinamTekstas << endl;
+
+    // Leidžiame perrašyti
+    cout << "Įveskite naują tekstą: ";
+    cin.getline(tekstas, 100);  // pirmas getline gali praleisti, jei prieš tai buvo cin
+    cin.getline(tekstas, 100);  // todėl kartojam
+
+    delete[] dinamTekstas;
+    dinamTekstas = new char[strlen(tekstas) + 1];
+    strcpy(dinamTekstas, tekstas);
+
+    cout << "Naujas tekstas: " << dinamTekstas << endl;
+
+    delete[] dinamTekstas;
+    return 0;
+}
+

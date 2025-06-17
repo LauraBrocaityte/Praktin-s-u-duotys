@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int valandos;
+    cout << "Įveskite valandų skaičių: ";
+    cin >> valandos;
+
+    int minutes = valandos * 60;
+    int sekundes = valandos * 3600;
+
+    cout << valandos << " val. = " << minutes << " min. arba " << sekundes << " sek." << endl;
+
+    return 0;
+}
+
+
+
+IR
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+bool arBalse(char raide) {
+    raide = tolower(raide);
+    string balses = "aeiouąęįųūy";
+    return balses.find(raide) != string::npos;
+}
+
+int main() {
+    string tekstas;
+    cout << "Įveskite žodį arba sakinį: ";
+    getline(cin, tekstas);  // Leidžia įvesti visą eilutę
+
+    int b = 0, p = 0;
+
+    for (char simbolis : tekstas) {
+        if (isalpha(simbolis)) {
+            if (arBalse(simbolis)) {
+                b++;
+            } else {
+                p++;
+            }
+        }
+    }
+
+    cout << "Balsių: " << b << ", Priebalsių: " << p << endl;
+
+    return 0;
+}

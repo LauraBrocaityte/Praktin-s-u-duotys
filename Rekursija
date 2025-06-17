@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+void desimtainisIDvejetaini(int skaicius) {
+    if (skaicius > 0) {
+        desimtainisIDvejetaini(skaicius / 2);
+        cout << skaicius % 2;
+    }
+}
+
+int main() {
+    int skaicius;
+    cout << "Įveskite dešimtainį skaičių: ";
+    cin >> skaicius;
+
+    if (skaicius == 0)
+        cout << "0";
+    else
+        desimtainisIDvejetaini(skaicius);
+
+    cout << endl;
+    return 0;
+}
+
+
+
+IR
+
+
+
+#include <iostream>
+using namespace std;
+
+int suma(int n) {
+    if (n == 1) return 1;
+    return n + suma(n - 1);
+}
+
+int main() {
+    int n;
+    cout << "Įveskite N: ";
+    cin >> n;
+    cout << "Suma nuo 1 iki " << n << ": " << suma(n) << endl;
+
+    return 0;
+}

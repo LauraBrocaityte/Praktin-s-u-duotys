@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+// Funkcijų deklaracijos
+void sveikinimas() {
+    cout << "Labas! Tai paprasta meniu programa.\n";
+}
+
+void suskaiciuokSuma() {
+    int a, b;
+    cout << "Įveskite du skaičius: ";
+    cin >> a >> b;
+    cout << "Jų suma: " << a + b << endl;
+}
+
+int main() {
+    int pasirinkimas;
+
+    do {
+        // Meniu atvaizdavimas
+        cout << "\n--- Meniu ---\n";
+        cout << "1. Parodyti sveikinimą\n";
+        cout << "2. Suskaičiuoti dviejų skaičių sumą\n";
+        cout << "3. Išeiti iš programos\n";
+        cout << "Pasirinkite veiksmą: ";
+        cin >> pasirinkimas;
+
+        // Vartotojo pasirinkimo apdorojimas
+        switch (pasirinkimas) {
+            case 1:
+                sveikinimas();
+                break;
+            case 2:
+                suskaiciuokSuma();
+                break;
+            case 3:
+                cout << "Programa baigta. Iki!\n";
+                break;
+            default:
+                cout << "Neteisingas pasirinkimas! Bandykite dar kartą.\n";
+        }
+    } while (pasirinkimas != 3);  // Programa veikia tol, kol nepasirenkama „išeiti“
+
+    return 0;
+}
+
+
+

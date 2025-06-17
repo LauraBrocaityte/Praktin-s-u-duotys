@@ -1,0 +1,78 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream out("studentai.txt");  // Rašymas į failą
+
+    if (!out) {
+        cout << "Nepavyko atidaryti failo rašymui." << endl;
+        return 1;
+    }
+
+    int kiekis;
+    cout << "Kiek studentų įvesti? ";
+    cin >> kiekis;
+
+    string vardas;
+    int pazymys;
+
+    for (int i = 0; i < kiekis; i++) {
+        cout << "Studento vardas: ";
+        cin >> vardas;
+        cout << "Pažymys: ";
+        cin >> pazymys;
+        out << vardas << " " << pazymys << endl;
+    }
+
+    out.close();  // Uždaryti failą
+
+    // --- Dabar skaitymas ---
+    ifstream in("studentai.txt");
+
+    if (!in) {
+        cout << "Nepavyko atidaryti failo skaitymui." << endl;
+        return 1;
+    }
+
+    cout << "\n--- Įvesti studentai ---\n";
+    while (in >> vardas >> pazymys) {
+        cout << "Vardas: " << vardas << ", pažymys: " << pazymys << endl;
+    }
+
+    in.close();
+    return 0;
+}
+
+
+
+
+ir
+
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream in("tekstas.txt");
+
+    if (!in) {
+        cout << "Nepavyko atidaryti failo." << endl;
+        return 1;
+    }
+
+    string zodis;
+    int kiekis = 0;
+
+    while (in >> zodis) {
+        kiekis++;
+    }
+
+    cout << "Failo žodžių skaičius: " << kiekis << endl;
+
+    in.close();
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int DBD(int a, int b) {
+    while (b != 0) {
+        int laikinas = b;
+        b = a % b;
+        a = laikinas;
+    }
+    return a;
+}
+
+int main() {
+    int x, y;
+    cout << "Įveskite du skaičius: ";
+    cin >> x >> y;
+    cout << "Didžiausias bendras daliklis: " << DBD(x, y) << endl;
+
+    return 0;
+}
